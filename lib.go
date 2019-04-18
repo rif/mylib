@@ -3,7 +3,7 @@ package mylib
 import (
 	"fmt"
 
-	"github.com/rif/mylib/utils"
+	"github.com/rif/mylib/v2/utils"
 )
 
 func GenerateMessage(name string, x int) string {
