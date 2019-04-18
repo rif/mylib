@@ -47,3 +47,18 @@ func TestToJSONStructMeta(t *testing.T) {
 		t.Error("got bad json result: ", jsonRep)
 	}
 }
+
+func BenchmarkToJSONStruct(b *testing.B) {
+	js := &struct {
+		Name        string  `json:"full_name"`
+		Score       float64 `json:"score"`
+		privateInfo string  `json:"private_info"`
+	}{
+		Name:        "Maria",
+		Score:       9.78,
+		privateInfo: "hope it will stay private",
+	}
+	for i := 0; i < b.N; i++ {
+		ToJSON(js)
+	}
+}
